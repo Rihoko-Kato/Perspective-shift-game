@@ -48,18 +48,21 @@
         box.style.display = "block";
       }
 
+      // Each build has its own version (set by WebBuild): the query makes the browser fetch the new files instead of
+      // mixing them with an older build still in its cache.
+      var version = "?v=" + encodeURIComponent("2026.09.30.2147");
       var script = document.createElement("script");
-      script.src = "Build/Web.loader.js";
+      script.src = "Build/Web.loader.js" + version;
       script.onload = function () {
         createUnityInstance(canvas, {
           arguments: [],
-          dataUrl: "Build/Web.data.unityweb",
-          frameworkUrl: "Build/Web.framework.js.unityweb",
-          codeUrl: "Build/Web.wasm.unityweb",
+          dataUrl: "Build/Web.data.unityweb" + version,
+          frameworkUrl: "Build/Web.framework.js.unityweb" + version,
+          codeUrl: "Build/Web.wasm.unityweb" + version,
           streamingAssetsUrl: "StreamingAssets",
           companyName: "DefaultCompany",
           productName: "Perspective Shift",
-          productVersion: "0.1.0",
+          productVersion: "2026.09.30.2147",
           // Retina screens: cap the render resolution to keep 60 fps (1280×720 CSS → at most 1920×1080).
           devicePixelRatio: Math.min(window.devicePixelRatio || 1, 1.5),
           showBanner: function (message, type) { if (type === "error") showError(message); else console.log(message); },
