@@ -280,7 +280,7 @@
 
       // Each build has its own version (set by WebBuild): the query makes the browser fetch the new files instead of
       // mixing them with an older build still in its cache.
-      var version = "?v=" + encodeURIComponent("2026.10.08.0120-test");
+      var version = "?v=" + encodeURIComponent("2026.10.08.1138");
       var script = document.createElement("script");
       script.src = "Build/Web.loader.js" + version;
       script.onload = function () {
@@ -292,7 +292,7 @@
           streamingAssetsUrl: "StreamingAssets",
           companyName: "DefaultCompany",
           productName: "Perspective Shift",
-          productVersion: "2026.10.08.0120-test",
+          productVersion: "2026.10.08.1138",
           // Retina screens: render at the screen's real resolution (capped at 2× so very dense screens keep 60 fps).
           // 1.5× looked soft on a 2× Mac screen; the scenes are simple enough for full resolution.
           devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
